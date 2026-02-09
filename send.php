@@ -48,8 +48,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 if (isset($_POST{"Info"})) {
     $name = $_POST["username"];
     $age = $_POST["userage"];
-    echo "Изпратеното име е: $name "<br>"";
-    echo "Изпратената възраст е: $age "<br>"";
+    echo "Изпратеното име е: $name ""<br>";
+    echo "Изпратената възраст е: $age ""<br>";
 
 }
 
@@ -78,4 +78,5 @@ $conn->close();
 
 header("Location: thanks.html");
 exit;
+
 ?>
