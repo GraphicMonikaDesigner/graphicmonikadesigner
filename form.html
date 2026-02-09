@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Заявка за услуга | Графичен дизайнер</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f0f14;
+      color: #f5f5f5;
+    }
+
+      .nav-form-button {
+
+  display: inline-flex;
+  align-items: left;
+  justify-content: left;
+
+  padding: 18px 20px;
+  border-radius: 28px;
+
+  background: var(--accent-color);
+  color: #ffffff;
+  text-decoration: none;
+
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+
+  text-decoration: none;
+  cursor: pointer;
+
+  box-shadow:
+    0 0 40px rgba(138, 138, 138, 0.65),
+    0 10px 28px rgba(0, 0, 0, 0.45);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.nav-form-button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 55px rgba(138, 138, 138, 0.65),
+    0 14px 36px rgba(0, 0, 0, 0.55);
+}
+
+    header {
+      height: 50vh;
+      background: linear-gradient(135deg, #7f5cff, #2dd4bf);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 { font-size: 3rem; }
+    header p { max-width: 700px; margin: 15px auto 0; font-size: 1.1rem; }
+
+    section { padding: 80px 10%; }
+
+    .form-box {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #18181f;
+      padding: 40px;
+      border-radius: 20px;
+    }
+
+    .form-box h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      border: none;
+      background: #27272f;
+      color: #fff;
+      font-family: inherit;
+    }
+
+    textarea { resize: vertical; min-height: 120px; }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .services label {
+      background: #27272f;
+      padding: 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .services input {
+      display: none;
+    }
+
+    .services input:checked + label {
+      background: linear-gradient(135deg, #7f5cff, #2dd4bf);
+      color: #fff;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #7f5cff, #2dd4bf);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .extra-fields {
+        display: none;
+        margin-bottom: 20px;  
+    }
+
+
+    footer {
+      background: #0b0b10;
+      padding: 40px 10%;
+      text-align: center;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="uslugi.html" class="nav-form-button">Назад</a>
+    </nav>
+
+<header>
+  <div>
+    <h1>Заявка за услуга</h1>
+    <p>Попълни формуляра и ми разкажи какво ти е необходимо.</p>
+  </div>
+</header>
+
+<section>
+  <div class="form-box">
+    <h2>Избери услуга</h2>
+    <form action="send.php" method="POST">
+
+      <label>Твоето име:</label>
+      <input type="text" name="name" placeholder="Име" required>
+
+      <label>Имейл:</label>
+      <input type="email" name="email" placeholder="example@email.com" required>
+
+      <label>Услуга:</label>
+      <div class="services">
+        <input type="checkbox" id="logo" name="services[]">
+        <label for="logo">Лого</label>
+
+        <input type="checkbox" id="cards" name="services[]">
+        <label for="cards">Визитки</label>
+
+        <input type="checkbox" id="mockup" name="services[]">
+        <label for="mockup">Мокъпи</label>
+
+        <input type="checkbox" id="social" name="services[]">
+        <label for="social">Социални медии</label>
+      </div>
+
+<div class="extra-fields" id="logoFields">
+  <label>Стил на логото</label>
+  <input type="text" name="logo_style" placeholder="Минималистично, модерно, класическо...">
+</div>
+
+<div class="extra-fields" id="cardsFields">
+  <label>Формат на визитките</label>
+  <input type="text" name="card_format" placeholder="Хоризонтални / Вертикални">
+  <label>Дизайн на визитките</label>
+  <div class="services">
+        <input type="checkbox" id="standard" name="services[]">
+        <label for="standard">Стандартни</label>
+
+        <input type="checkbox" id="luxurious" name="services[]">
+        <label for="luxurious">Луксозни</label>
+
+        <input type="checkbox" id="digital" name="services[]">
+        <label for="digital">Дигитални</label>
+</div>
+</div>
+
+<div class="extra-fields" id="socialFields">
+  <label>Платформи</label>
+  <input type="text" name="platforms" placeholder="Instagram, Facebook, TikTok...">
+</div>
+
+
+      <label>Описание на проекта:</label>
+      <textarea name="description" placeholder="Опиши накратко какво търсиш...">
+        </textarea>
+        <label>Бюджет (по желание):</label>
+         <p>
+          Искам само оценка, след като направя проктите ви!
+        </p>
+        </select>
+
+          <br>
+        <button type="submit">Изпрати заявка</button>
+
+
+        </form>
+        </div>
+        </section>
+        <script src="script.js"></script>
+        </body>
+</html>
